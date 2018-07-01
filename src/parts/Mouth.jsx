@@ -1,16 +1,28 @@
-import PartsRenderer from './PartsRenderer';
-
 const smile = {
     shape: 'path',
     properties: {
-        d: (imageProps) => `M ${imageProps.center - 50} ${imageProps.center + 40} q 50 50 100 0`
+        d: (image) => {
+            const startPoint = `${image.anchors.mouth.left.x} ${image.anchors.mouth.left.y}`
+            const mouthLength = image.anchors.mouth.right.x - image.anchors.mouth.left.x;
+            const totalYOffset = 50;
+            const relativeMidInflection = `${mouthLength / 2} ${totalYOffset}`;
+            const relativeEndPoint = `${mouthLength} 0`;
+            return `M ${startPoint} q ${relativeMidInflection} ${relativeEndPoint}`
+        }
     }
 };
 
 const frown = {
     shape: 'path',
     properties: {
-        d: (imageProps) => `M ${imageProps.center - 50} ${imageProps.center + 40} q 50 -50 100 0`
+        d: (image) => {
+            const startPoint = `${image.anchors.mouth.left.x} ${image.anchors.mouth.left.y}`
+            const mouthLength = image.anchors.mouth.right.x - image.anchors.mouth.left.x;
+            const totalYOffset = -50;
+            const relativeMidInflection = `${mouthLength / 2} ${totalYOffset}`;
+            const relativeEndPoint = `${mouthLength} 0`;
+            return `M ${startPoint} q ${relativeMidInflection} ${relativeEndPoint}`
+        }
     }
 };
 
@@ -19,7 +31,6 @@ const mouths = [
     frown
 ]
 
-export default function (props) {
-    const config = mouths[props.code];
-    return PartsRenderer(config, props.imageProps);
+export default function (code) {
+    return mouths[code];
 }

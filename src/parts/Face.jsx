@@ -1,11 +1,43 @@
-import PartsRenderer from './PartsRenderer';
+// Must be kept in sync with IMG_SIZE in FaceBase
+const imageSize = 256;
+const imageCenter = imageSize / 2;
 
 const circle =  {
     shape: 'circle',
     properties: {
-        r: image => `${image.center - 5}`,
-        cx: image => `${image.center}`,
-        cy: image => `${image.center}`
+        r: `${imageCenter - 5}`,
+        cx: `${imageCenter}`,
+        cy: `${imageCenter}`
+    },
+    anchors: {
+        eyes: {
+            left: {
+                center: {
+                    x: `${imageCenter - 35}`,
+                    y: `${imageCenter - 40}`
+                }
+            },
+            right: {
+                center: {
+                    x: `${imageCenter + 35}`,
+                    y: `${imageCenter - 40}`
+                }
+            }
+        },
+        mouth: {
+            left: {
+                x: `${imageCenter - 50}`,
+                y: `${imageCenter + 40}`
+            },
+            center: {
+                x: `${imageCenter}`,
+                y: `${imageCenter + 40}`
+            },
+            right: {
+                x: `${imageCenter + 50}`,
+                y: `${imageCenter + 40}`
+            }
+        }
     }
 };
 
@@ -14,15 +46,75 @@ const square = {
     properties: {
         x: 0,
         y: 0,
-        width: image => `${image.size}`,
-        height: image => `${image.size}`
+        width: `${imageSize}`,
+        height: `${imageSize}`
+    },
+    anchors: {
+        eyes: {
+            left: {
+                center: {
+                    x: `${imageCenter - 35}`,
+                    y: `${imageCenter - 40}`
+                }
+            },
+            right: {
+                center: {
+                    x: `${imageCenter + 35}`,
+                    y: `${imageCenter - 40}`
+                }
+            }
+        },
+        mouth: {
+            left:{
+                x: `${imageCenter - 50}`,
+                y: `${imageCenter + 40}`
+            },
+            center: {
+                x: `${imageCenter}`,
+                y: `${imageCenter + 40}`
+            },
+            right: {
+                x: `${imageCenter + 50}`,
+                y: `${imageCenter + 40}`
+            }
+        }
     }
 };
 
 const triangle = {
     shape: 'polygon',
     properties: {
-        points: image => `0,${image.size} ${image.center},0 ${image.size},${image.size}`
+        points: `0,${imageSize} ${imageCenter},0 ${imageSize},${imageSize}`
+    },
+    anchors: {
+        eyes: {
+            left: {
+                center: {
+                    x: `${imageCenter - 25}`,
+                    y: `${imageCenter - 35}`
+                }
+            },
+            right: {
+                center: {
+                    x: `${imageCenter + 25}`,
+                    y: `${imageCenter - 35}`
+                }
+            }
+        },
+        mouth: {
+            left: {
+                x: `${imageCenter - 50}`,
+                y: `${imageCenter + 40}`
+            },
+            center: {
+                x: `${imageCenter}`,
+                y: `${imageCenter + 40}`
+            },
+            right: {
+                x: `${imageCenter + 50}`,
+                y: `${imageCenter + 40}`
+            }
+        }
     }
 };
 
@@ -32,7 +124,6 @@ const faces = [
     triangle
 ];
 
-export default function (props) {
-    const config = faces[props.code];
-    return PartsRenderer(config, props.imageProps);
+export default function (code) {
+    return faces[code];
 }

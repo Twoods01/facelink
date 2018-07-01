@@ -2,6 +2,7 @@ import React from 'react';
 import Face from './parts/Face';
 import Eyes from './parts/Eyes';
 import Mouth from './parts/Mouth';
+import PartsRenderer from './parts/PartsRenderer';
 
 const IMG_SIZE = 256;
 
@@ -19,15 +20,17 @@ function parseCode(code) {
 
 export default function(props) {
     const parsedCode = parseCode(props.code);
-    const imageProps = {
+    const face = Face(parsedCode.faceCode);
+    const imageProps = Object.assign({
         size: IMG_SIZE,
         center: IMG_SIZE / 2
-    }
+    }, {anchors: face.anchors});
+    
     return (
         <svg className="faceRender" width={IMG_SIZE} height={IMG_SIZE}>
-            <Face code={parsedCode.faceCode} imageProps={imageProps} />
-            <Eyes code={parsedCode.eyeCode} imageProps={imageProps} />
-            <Mouth code={parsedCode.mouthCode} imageProps={imageProps} />
+            {PartsRenderer(face, imageProps)}
+            {PartsRenderer(Eyes(parsedCode.eyeCode), imageProps)}
+            {PartsRenderer(Mouth(parsedCode.mouthCode), imageProps)}
         </svg>
     );
 }

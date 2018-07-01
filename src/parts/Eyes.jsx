@@ -1,20 +1,18 @@
-import PartsRenderer from './PartsRenderer';
-
 const twoCircles = [
     {
         shape: 'circle',
         properties: {
             r: 10,
-            cx: image => `${image.center + 35}`,
-            cy: image => `${image.center - 40}`
+            cx: image => `${image.anchors.eyes.left.center.x}`,
+            cy: image => `${image.anchors.eyes.left.center.y}`
         }
     },
     {
         shape: 'circle',
         properties: {
             r: 10,
-            cx: image => `${image.center - 35}`,
-            cy: image => `${image.center - 40}`
+            cx: image => `${image.anchors.eyes.right.center.x}`,
+            cy: image => `${image.anchors.eyes.right.center.y}`
         }
     }
 ];
@@ -24,16 +22,16 @@ const twoDots = [
         shape: 'circle',
         properties: {
             r: 2,
-            cx: image => `${image.center + 35}`,
-            cy: image => `${image.center - 40}`
+            cx: image => `${image.anchors.eyes.left.center.x}`,
+            cy: image => `${image.anchors.eyes.left.center.y}`
         }
     },
     {
         shape: 'circle',
         properties: {
             r: 2,
-            cx: image => `${image.center - 35}`,
-            cy: image => `${image.center - 40}`
+            cx: image => `${image.anchors.eyes.right.center.x}`,
+            cy: image => `${image.anchors.eyes.right.center.y}`
         }
     }
 ];
@@ -43,7 +41,6 @@ const eyes = [
     twoDots
 ]
 
-export default function (props) {
-    const config = eyes[props.code];
-    return PartsRenderer(config, props.imageProps);
+export default function (code) {
+    return eyes[code];
 }
