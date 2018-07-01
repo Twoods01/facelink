@@ -7,7 +7,7 @@ import _ from 'lodash';
 
 // Never change the order of this, only add new parts to the end
 const parts = [Faces, Eyes, Mouths];
-const partsBitLength = 8;
+const partsBitLength = 5;
 const IMG_SIZE = 256;
 
 function getRandomInt(max) {
@@ -15,11 +15,14 @@ function getRandomInt(max) {
 }
 
 function parseFaceCode(code) {
-    let partsBitMask = 0xFF;
+    let partsBitMask = 0x1F;
     let codeNumber = parseInt(code, 16);
 
-    return parts.map(() => {
+    return parts.map(part => {
         let partCode = codeNumber & partsBitMask;
+        if(partCode >= part.length) {
+            throw new Error("Invalid Code");
+        }
         codeNumber = codeNumber >> partsBitLength;
         return partCode;
     });
@@ -40,18 +43,22 @@ function generateFaceCode() {
 }
 
 export default function(props) {
-    const parsedCode = parseFaceCode(props.code);
-    const face = Faces[parsedCode[0]];
-    const imageProps = Object.assign({
-        size: IMG_SIZE,
-        center: IMG_SIZE / 2
-    }, {anchors: face.anchors});
-    
-    return (
-        <svg className="faceRender" width={IMG_SIZE} height={IMG_SIZE}>
-            {parts.map((part, i) => PartsRenderer(part[parsedCode[i]], imageProps))}
-        </svg>
-    );
+    try {
+        const parsedCode = parseFaceCode(props.code);
+        const face = Faces[parsedCode[0]];
+        const imageProps = Object.assign({
+            size: IMG_SIZE,
+            center: IMG_SIZE / 2
+        }, { anchors: face.anchors });
+
+        return (
+            <svg className="faceRender" width={IMG_SIZE} height={IMG_SIZE}>
+                {parts.map((part, i) => PartsRenderer(part[parsedCode[i]], imageProps))}
+            </svg>
+        );
+    } catch(err) {
+        return <div> {err.message} </div>
+    }
 }
 
 export {
