@@ -1,0 +1,10 @@
+@import '~antd/dist/antd.css';
+
+.App {
+  text-align: center;
+  margin: 10px;
+}
+
+.faceRender {
+  margin-top: 10px;
+}
