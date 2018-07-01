@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Button } from 'antd';
-import FaceBase from './FaceBase';
+import { Button, Input } from 'antd';
+import FaceBase, { generateFaceCode } from './FaceBase';
 import './App.css';
 
 class App extends Component {
@@ -13,16 +13,19 @@ class App extends Component {
 
   generateCode() {
     this.setState({
-      faceCode: Math.random()
+      faceCode: generateFaceCode()
     });
   }
 
   render() {
     return (
       <div className="App">
-        <Button type="primary" onClick={this.generateCode.bind(this)}>Generate Face</Button>
+        <div>
+          <Button type="primary" onClick={this.generateCode.bind(this)}>Generate Face</Button>
+          <Input className="faceCodeInput" type="text" disabled value={this.state.faceCode} />
+        </div>
         <br />
-        {this.state.faceCode && <FaceBase code={this.state.faceCode} />}
+        {this.state.faceCode !== null && <FaceBase code={this.state.faceCode} />}
       </div>
     );
   }

@@ -124,6 +124,4 @@ const faces = [
     triangle
 ];
 
-export default function (code) {
-    return faces[code];
-}
+export default faces;

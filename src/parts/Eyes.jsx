@@ -41,6 +41,4 @@ const eyes = [
     twoDots
 ]
 
-export default function (code) {
-    return eyes[code];
-}
+export default eyes;

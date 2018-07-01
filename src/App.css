@@ -8,3 +8,8 @@
 .faceRender {
   margin-top: 10px;
 }
+
+.faceCodeInput {
+  width: 250px;
+  margin: 10px;
+}

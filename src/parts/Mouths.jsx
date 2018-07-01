@@ -31,6 +31,4 @@ const mouths = [
     frown
 ]
 
-export default function (code) {
-    return mouths[code];
-}
+export default mouths;
