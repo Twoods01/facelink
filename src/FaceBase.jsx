@@ -42,14 +42,27 @@ function generateFaceCode() {
     return (faceCode >> partsBitLength).toString(16);
 }
 
+function intify(object) {
+    _.forEach(object, (value, key) => {
+        if(_.isObject(value)) {
+            object[key] = intify(value);
+        } else {
+            object[key] = parseInt(value, 10);
+        }
+    });
+
+    return object
+}
+
 export default function(props) {
     try {
         const parsedCode = parseFaceCode(props.code);
         const face = Faces[parsedCode[0]];
+
         const imageProps = Object.assign({
             size: IMG_SIZE,
             center: IMG_SIZE / 2
-        }, { anchors: face.anchors });
+        }, { anchors: intify(face.anchors) });
 
         return (
             <svg className="faceRender" width={IMG_SIZE} height={IMG_SIZE}>

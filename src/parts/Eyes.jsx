@@ -36,9 +36,53 @@ const twoDots = [
     }
 ];
 
+const horizontalLines = [
+    {
+        shape: 'line',
+        properties: {
+            x1: image => `${image.anchors.eyes.left.center.x - 10}`,
+            y1: image => `${image.anchors.eyes.left.center.y}`,
+            x2: image => `${image.anchors.eyes.left.center.x + 10}`,
+            y2: image => `${image.anchors.eyes.left.center.y}`
+        }
+    }, 
+    {
+        shape: 'line',
+        properties: {
+            x1: image => `${image.anchors.eyes.right.center.x - 10}`,
+            y1: image => `${image.anchors.eyes.right.center.y}`,
+            x2: image => `${image.anchors.eyes.right.center.x + 10}`,
+            y2: image => `${image.anchors.eyes.right.center.y}`
+        }
+    }
+]
+
+const verticalLines = [
+    {
+        shape: 'line',
+        properties: {
+            x1: image => `${image.anchors.eyes.left.center.x}`,
+            y1: image => `${image.anchors.eyes.left.center.y-10}`,
+            x2: image => `${image.anchors.eyes.left.center.x}`,
+            y2: image => `${image.anchors.eyes.left.center.y+10}`
+        }
+    },
+    {
+        shape: 'line',
+        properties: {
+            x1: image => `${image.anchors.eyes.right.center.x}`,
+            y1: image => `${image.anchors.eyes.right.center.y-10}`,
+            x2: image => `${image.anchors.eyes.right.center.x}`,
+            y2: image => `${image.anchors.eyes.right.center.y+10}`
+        }
+    }
+]
+
 const eyes = [
     twoCircles,
-    twoDots
+    twoDots,
+    horizontalLines,
+    verticalLines
 ]
 
 export default eyes;
