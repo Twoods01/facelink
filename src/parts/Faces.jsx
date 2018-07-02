@@ -27,15 +27,21 @@ const circle =  {
         mouth: {
             left: {
                 x: `${imageCenter - 50}`,
-                y: `${imageCenter + 40}`
+                y: `${imageCenter + 50}`
             },
             center: {
                 x: `${imageCenter}`,
-                y: `${imageCenter + 40}`
+                y: `${imageCenter + 50}`
             },
             right: {
                 x: `${imageCenter + 50}`,
-                y: `${imageCenter + 40}`
+                y: `${imageCenter + 50}`
+            }
+        },
+        nose: {
+            center: {
+                x: `${imageCenter}`,
+                y: `${imageCenter}`
             }
         }
     }
@@ -54,28 +60,34 @@ const square = {
             left: {
                 center: {
                     x: `${imageCenter - 35}`,
-                    y: `${imageCenter - 40}`
+                    y: `${imageCenter - 50}`
                 }
             },
             right: {
                 center: {
                     x: `${imageCenter + 35}`,
-                    y: `${imageCenter - 40}`
+                    y: `${imageCenter - 50}`
                 }
             }
         },
         mouth: {
             left:{
                 x: `${imageCenter - 50}`,
-                y: `${imageCenter + 40}`
+                y: `${imageCenter + 50}`
             },
             center: {
                 x: `${imageCenter}`,
-                y: `${imageCenter + 40}`
+                y: `${imageCenter + 50}`
             },
             right: {
                 x: `${imageCenter + 50}`,
-                y: `${imageCenter + 40}`
+                y: `${imageCenter + 50}`
+            }
+        },
+        nose: {
+            center: {
+                x: `${imageCenter}`,
+                y: `${imageCenter}`
             }
         }
     }
@@ -104,15 +116,21 @@ const triangle = {
         mouth: {
             left: {
                 x: `${imageCenter - 50}`,
-                y: `${imageCenter + 40}`
+                y: `${imageCenter + 50}`
             },
             center: {
                 x: `${imageCenter}`,
-                y: `${imageCenter + 40}`
+                y: `${imageCenter + 50}`
             },
             right: {
                 x: `${imageCenter + 50}`,
-                y: `${imageCenter + 40}`
+                y: `${imageCenter + 50}`
+            }
+        },
+        nose: {
+            center: {
+                x: `${imageCenter}`,
+                y: `${imageCenter}`
             }
         }
     }
