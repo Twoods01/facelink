@@ -1,0 +1,10 @@
+version: 0.2
+phases:
+ build:
+   commands:
+     - echo "Starting build"
+     - npm build
+ post_build:
+   commands:
+     - echo "Starting S3 upload"
+     - aws s3 sync --delete ./build "s3://devo.facey.link"
