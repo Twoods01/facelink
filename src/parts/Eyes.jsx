@@ -17,6 +17,53 @@ const twoCircles = [
     }
 ];
 
+const roundGlassesRadius = 15
+const roundGlasses = [
+    {
+        shape: 'circle',
+        properties: {
+            r: roundGlassesRadius,
+            cx: image => `${image.anchors.eyes.left.center.x}`,
+            cy: image => `${image.anchors.eyes.left.center.y}`
+        }
+    },
+    {
+        shape: 'circle',
+        properties: {
+            r: roundGlassesRadius,
+            cx: image => `${image.anchors.eyes.right.center.x}`,
+            cy: image => `${image.anchors.eyes.right.center.y}`
+        }
+    },
+    {
+        shape: 'line',
+        properties: {
+            x1: image => `${image.anchors.eyes.left.center.x - roundGlassesRadius}`,
+            y1: image => `${image.anchors.eyes.left.center.y}`,
+            x2: image => `${image.anchors.eyes.left.center.x - roundGlassesRadius - 20}`,
+            y2: image => `${image.anchors.eyes.left.center.y}`
+        }
+    }, 
+    {
+        shape: 'line',
+        properties: {
+            x1: image => `${image.anchors.eyes.right.center.x + roundGlassesRadius}`,
+            y1: image => `${image.anchors.eyes.right.center.y}`,
+            x2: image => `${image.anchors.eyes.right.center.x + roundGlassesRadius + 20}`,
+            y2: image => `${image.anchors.eyes.right.center.y}`
+        }
+    }, 
+    {
+        shape: 'line',
+        properties: {
+            x1: image => `${image.anchors.eyes.left.center.x + roundGlassesRadius}`,
+            y1: image => `${image.anchors.eyes.left.center.y}`,
+            x2: image => `${image.anchors.eyes.right.center.x - roundGlassesRadius}`,
+            y2: image => `${image.anchors.eyes.right.center.y}`
+        }
+    }
+];
+
 const twoDots = [
     {
         shape: 'circle',
@@ -182,6 +229,7 @@ const asterisks = [
 
 const eyes = [
     twoCircles,
+    roundGlasses,
     twoDots,
     horizontalLines,
     verticalLines,

@@ -78,6 +78,16 @@ const twoDots = [
     }
 ]
 
+const pig = twoDots.concat([{
+    shape: 'ellipse',
+    properties: {
+        cx: image => `${image.anchors.nose.center.x}`,
+        cy: image => `${image.anchors.nose.center.y}`,
+        rx: 20,
+        ry: 15
+    }
+}]);
+
 const noses = [
     dot,
     triangle,
@@ -85,7 +95,8 @@ const noses = [
     none,
     sidewaysTriangle,
     curvedSideways,
-    twoDots
+    twoDots,
+    pig
 ]
 
 export default noses;
