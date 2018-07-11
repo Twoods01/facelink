@@ -2,7 +2,7 @@ const smile = {
     shape: 'path',
     properties: {
         d: image => {
-            const startPoint = `${image.anchors.mouth.left.x} ${image.anchors.mouth.left.y}`
+            const startPoint = `${image.anchors.mouth.left.x} ${image.anchors.mouth.left.y - 15}`
             const mouthLength = image.anchors.mouth.right.x - image.anchors.mouth.left.x;
             const totalYOffset = 50;
             const relativeMidInflection = `${mouthLength / 2} ${totalYOffset}`;
@@ -16,7 +16,7 @@ const frown = {
     shape: 'path',
     properties: {
         d: image => {
-            const startPoint = `${image.anchors.mouth.left.x} ${image.anchors.mouth.left.y}`
+            const startPoint = `${image.anchors.mouth.left.x} ${image.anchors.mouth.left.y + 15}`
             const mouthLength = image.anchors.mouth.right.x - image.anchors.mouth.left.x;
             const totalYOffset = -50;
             const relativeMidInflection = `${mouthLength / 2} ${totalYOffset}`;

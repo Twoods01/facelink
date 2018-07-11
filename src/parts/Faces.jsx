@@ -5,7 +5,7 @@ const imageCenter = imageSize / 2;
 const circle =  {
     shape: 'circle',
     properties: {
-        r: `${imageCenter - 5}`,
+        r: `${imageCenter - 30}`,
         cx: `${imageCenter}`,
         cy: `${imageCenter}`
     },
@@ -50,10 +50,10 @@ const circle =  {
 const square = {
     shape: 'rect',
     properties: {
-        x: 0,
-        y: 0,
-        width: `${imageSize}`,
-        height: `${imageSize}`
+        x: 30,
+        y: 30,
+        width: `${imageSize-60}`,
+        height: `${imageSize-60}`
     },
     anchors: {
         eyes: {
@@ -96,41 +96,41 @@ const square = {
 const triangle = {
     shape: 'polygon',
     properties: {
-        points: `0,${imageSize} ${imageCenter},0 ${imageSize},${imageSize}`
+        points: `30,${imageSize - 30} ${imageCenter},30 ${imageSize - 30},${imageSize - 30}`
     },
     anchors: {
         eyes: {
             left: {
                 center: {
                     x: `${imageCenter - 25}`,
-                    y: `${imageCenter - 35}`
+                    y: `${imageCenter - 10}`
                 }
             },
             right: {
                 center: {
                     x: `${imageCenter + 25}`,
-                    y: `${imageCenter - 35}`
+                    y: `${imageCenter - 10}`
                 }
             }
         },
         mouth: {
             left: {
                 x: `${imageCenter - 50}`,
-                y: `${imageCenter + 50}`
+                y: `${imageCenter + 65}`
             },
             center: {
                 x: `${imageCenter}`,
-                y: `${imageCenter + 50}`
+                y: `${imageCenter + 65}`
             },
             right: {
                 x: `${imageCenter + 50}`,
-                y: `${imageCenter + 50}`
+                y: `${imageCenter + 65}`
             }
         },
         nose: {
             center: {
                 x: `${imageCenter}`,
-                y: `${imageCenter}`
+                y: `${imageCenter + 20}`
             }
         }
     }
