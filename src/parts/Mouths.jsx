@@ -106,6 +106,70 @@ const D = [
     }
 ]
 
+
+const zigzag = [
+    {
+        shape: 'line',
+        properties: {
+            x1: image => `${image.anchors.mouth.left.x}`,
+            y1: image => `${image.anchors.mouth.left.y - 10}`,
+            x2: image => `${2 + image.anchors.mouth.left.x + (image.anchors.mouth.right.x - image.anchors.mouth.left.x) / 3}`,
+            y2: image => `${image.anchors.mouth.left.y + 10}`
+        }
+    },
+    {
+        shape: 'line',
+        properties: {
+            x1: image => `${image.anchors.mouth.left.x + (image.anchors.mouth.right.x - image.anchors.mouth.left.x) / 3}`,
+            y1: image => `${image.anchors.mouth.left.y + 10}`,
+            x2: image => `${2 + image.anchors.mouth.left.x + (image.anchors.mouth.right.x - image.anchors.mouth.left.x) * (2/3)}`,
+            y2: image => `${image.anchors.mouth.left.y - 10}`
+        }
+    },
+    {
+        shape: 'line',
+        properties: {
+            x1: image => `${image.anchors.mouth.left.x + (image.anchors.mouth.right.x - image.anchors.mouth.left.x) * (2/3)}`,
+            y1: image => `${image.anchors.mouth.left.y - 10}`,
+            x2: image => `${image.anchors.mouth.right.x}`,
+            y2: image => `${image.anchors.mouth.right.y + 10}`
+        }
+    }
+]
+
+function halfSquiggle(isLeftSide) {
+    return {
+        shape: 'path',
+        properties: {
+            d: image => {
+                const halfMouthLength = (image.anchors.mouth.right.x - image.anchors.mouth.left.x) / 2;
+
+                const startPointXOffset = isLeftSide ? 0 : halfMouthLength;
+                const startPoint = `${startPointXOffset + image.anchors.mouth.left.x} ${image.anchors.mouth.left.y}`
+
+                const totalYOffset = isLeftSide ? -25 : 25;
+                const relativeMidInflection = `${halfMouthLength / 2} ${totalYOffset}`;
+                const relativeEndPoint = `${halfMouthLength} 0`;
+                return `M ${startPoint} q ${relativeMidInflection} ${relativeEndPoint}`
+            }
+        }
+    }
+}
+const squiggle = [
+    halfSquiggle(true),
+    halfSquiggle(false)
+]
+
+const slant = {
+    shape: 'line',
+    properties: {
+        x1: image => `${image.anchors.mouth.left.x}`,
+        y1: image => `${image.anchors.mouth.left.y + 10}`,
+        x2: image => `${image.anchors.mouth.right.x}`,
+        y2: image => `${image.anchors.mouth.right.y - 10}`
+    }
+}
+
 const mouths = [
     smile,
     frown,
@@ -114,7 +178,10 @@ const mouths = [
     tongueOut,
     triangle,
     smallCircle,
-    D
+    D,
+    zigzag,
+    squiggle,
+    slant
 ]
 
 export default mouths;
