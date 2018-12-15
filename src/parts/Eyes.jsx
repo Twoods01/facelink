@@ -221,10 +221,28 @@ const twoTriangles = [
 ]
 
 const asterisks = [
-    angryEyes[0],
-    backSlant[0],
-    angryEyes[1],
-    backSlant[1]
+    ...angryEyes,
+    ...backSlant
+]
+
+const circledVerticalLines = [
+    ...twoCircles,
+    ...verticalLines
+]
+
+const circledAsterisks = [
+    ...asterisks,
+    ...twoCircles
+]
+
+const circledHorizontalLines = [
+    ...twoCircles,
+    ...horizontalLines
+]
+
+const circledDots = [
+    ...twoCircles,
+    ...horizontalLines
 ]
 
 const eyes = [
@@ -238,7 +256,11 @@ const eyes = [
     ovals,
     openAndClosed,
     twoTriangles,
-    asterisks
+    asterisks,
+    circledVerticalLines,
+    circledAsterisks,
+    circledHorizontalLines,
+    circledDots
 ]
 
 export default eyes;
