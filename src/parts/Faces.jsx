@@ -124,7 +124,7 @@ const square = {
             left: {
                 left: {
                     x: `${imageCenter - 98}`,
-                    y: `${imageCenter - 70}`
+                    y: `${imageCenter - 50}`
                 },
                 center: {
                     x: `${imageCenter - 98}`,
@@ -132,13 +132,13 @@ const square = {
                 },
                 right: {
                     x: `${imageCenter - 98}`,
-                    y: `${imageCenter - 50}`
+                    y: `${imageCenter - 70}`
                 },
             },
             right: {
                 left: {
                     x: `${imageCenter + 98}`,
-                    y: `${imageCenter - 70}`
+                    y: `${imageCenter - 50}`
                 },
                 center: {
                     x: `${imageCenter + 98}`,
@@ -146,7 +146,7 @@ const square = {
                 },
                 right: {
                     x: `${imageCenter + 98}`,
-                    y: `${imageCenter - 50}`
+                    y: `${imageCenter - 70}`
                 },
             }
         }
@@ -196,30 +196,30 @@ const triangle = {
         ears: {
             left: {
                 left: {
-                    x: `${imageCenter - 40}`,
-                    y: `${imageCenter - 20}`
+                    x: `${imageCenter - 51}`,
+                    y: `${imageCenter}`
                 },
                 center: {
                     x: `${imageCenter - 48}`,
                     y: `${imageCenter - 10}`
                 },
                 right: {
-                    x: `${imageCenter - 51}`,
-                    y: `${imageCenter}`
+                    x: `${imageCenter - 40}`,
+                    y: `${imageCenter - 20}`
                 }
             },
             right: {
                 left: {
-                    x: `${imageCenter + 40}`,
-                    y: `${imageCenter - 20}`
+                    x: `${imageCenter + 51}`,
+                    y: `${imageCenter}`
                 },
                 center: {
                     x: `${imageCenter + 48}`,
                     y: `${imageCenter - 10}`
                 },
                 right: {
-                    x: `${imageCenter + 51}`,
-                    y: `${imageCenter}`
+                    x: `${imageCenter + 40}`,
+                    y: `${imageCenter - 20}`
                 }
             }
         }

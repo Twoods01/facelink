@@ -40,8 +40,8 @@ const roundGlasses = [
         properties: {
             x1: image => `${image.anchors.eyes.left.center.x - roundGlassesRadius}`,
             y1: image => `${image.anchors.eyes.left.center.y}`,
-            x2: image => `${image.anchors.eyes.left.center.x - roundGlassesRadius - 20}`,
-            y2: image => `${image.anchors.eyes.left.center.y}`
+            x2: image => `${image.anchors.ears.left.right.x}`,
+            y2: image => `${image.anchors.ears.left.right.y}`
         }
     }, 
     {
@@ -49,8 +49,8 @@ const roundGlasses = [
         properties: {
             x1: image => `${image.anchors.eyes.right.center.x + roundGlassesRadius}`,
             y1: image => `${image.anchors.eyes.right.center.y}`,
-            x2: image => `${image.anchors.eyes.right.center.x + roundGlassesRadius + 20}`,
-            y2: image => `${image.anchors.eyes.right.center.y}`
+            x2: image => `${image.anchors.ears.right.right.x}`,
+            y2: image => `${image.anchors.ears.right.right.y}`
         }
     }, 
     {
