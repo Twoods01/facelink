@@ -1,15 +1,16 @@
 import React from 'react';
-import Faces from './parts/Faces';
+import Faces, {imageSize} from './parts/Faces';
 import Eyes from './parts/Eyes';
 import Mouths from './parts/Mouths';
 import Noses from './parts/Noses';
+import Ears from './parts/Ears';
 import PartsRenderer from './parts/PartsRenderer';
 import _ from 'lodash';
 
 // Never change the order of this, only add new parts to the end
-const parts = [Faces, Eyes, Mouths, Noses];
+const parts = [Faces, Eyes, Mouths, Noses, Ears];
 const partsBitLength = 5;
-const IMG_SIZE = 256;
+const IMG_SIZE = imageSize;
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));

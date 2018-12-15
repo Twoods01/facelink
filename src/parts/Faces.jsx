@@ -43,6 +43,36 @@ const circle =  {
                 x: `${imageCenter}`,
                 y: `${imageCenter}`
             }
+        },
+        ears: {
+            right: {
+                right: {
+                    x: `${imageCenter + 75}`,
+                    y: `${imageCenter - 65}`
+                },
+                center: {
+                    x: `${imageCenter + 83}`,
+                    y: `${imageCenter - 55}`
+                },
+                left: {
+                    x: `${imageCenter + 88}`,
+                    y: `${imageCenter - 45}`
+                }
+            },
+            left: {
+                right: {
+                    x: `${imageCenter - 75}`,
+                    y: `${imageCenter - 65}`
+                },
+                center: {
+                    x: `${imageCenter - 83}`,
+                    y: `${imageCenter - 55}`
+                },
+                left: {
+                    x: `${imageCenter - 88}`,
+                    y: `${imageCenter - 45}`
+                }
+            }
         }
     }
 };
@@ -89,6 +119,36 @@ const square = {
                 x: `${imageCenter}`,
                 y: `${imageCenter}`
             }
+        },
+        ears: {
+            left: {
+                left: {
+                    x: `${imageCenter - 98}`,
+                    y: `${imageCenter - 70}`
+                },
+                center: {
+                    x: `${imageCenter - 98}`,
+                    y: `${imageCenter - 60}`
+                },
+                right: {
+                    x: `${imageCenter - 98}`,
+                    y: `${imageCenter - 50}`
+                },
+            },
+            right: {
+                left: {
+                    x: `${imageCenter + 98}`,
+                    y: `${imageCenter - 70}`
+                },
+                center: {
+                    x: `${imageCenter + 98}`,
+                    y: `${imageCenter - 60}`
+                },
+                right: {
+                    x: `${imageCenter + 98}`,
+                    y: `${imageCenter - 50}`
+                },
+            }
         }
     }
 };
@@ -132,6 +192,36 @@ const triangle = {
                 x: `${imageCenter}`,
                 y: `${imageCenter + 20}`
             }
+        },
+        ears: {
+            left: {
+                left: {
+                    x: `${imageCenter - 40}`,
+                    y: `${imageCenter - 20}`
+                },
+                center: {
+                    x: `${imageCenter - 48}`,
+                    y: `${imageCenter - 10}`
+                },
+                right: {
+                    x: `${imageCenter - 51}`,
+                    y: `${imageCenter}`
+                }
+            },
+            right: {
+                left: {
+                    x: `${imageCenter + 40}`,
+                    y: `${imageCenter - 20}`
+                },
+                center: {
+                    x: `${imageCenter + 48}`,
+                    y: `${imageCenter - 10}`
+                },
+                right: {
+                    x: `${imageCenter + 51}`,
+                    y: `${imageCenter}`
+                }
+            }
         }
     }
 };
@@ -143,3 +233,5 @@ const faces = [
 ];
 
 export default faces;
+
+export {imageSize};
