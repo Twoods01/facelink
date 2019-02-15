@@ -226,10 +226,91 @@ const triangle = {
     }
 };
 
+const flatJaw = {
+    shape: 'path',
+    properties: { d: `M ${imageSize * 0.5}  ${imageSize * 0.1} 
+        C ${imageSize * 0.6}  ${imageSize * 0.1}      ${imageSize * 0.7}  ${imageSize * 0.15}    ${imageSize * 0.75} ${imageSize * 0.3}
+        C ${imageSize * 0.8}  ${imageSize * 0.45}     ${imageSize * 0.8}  ${imageSize * 0.45}    ${imageSize * 0.85} ${imageSize * 0.65}
+        C ${imageSize * 0.86} ${imageSize * 0.7}      ${imageSize * 0.87} ${imageSize * 0.75}    ${imageSize * 0.85} ${imageSize * 0.8}
+        C ${imageSize * 0.8}  ${imageSize * 0.95}     ${imageSize * 0.55} ${imageSize * 0.95}    ${imageSize * 0.5}  ${imageSize * 0.95}
+        C ${imageSize * 0.45} ${imageSize * 0.95}     ${imageSize * 0.20} ${imageSize * 0.95}    ${imageSize * 0.15} ${imageSize * 0.8}
+        C ${imageSize * 0.13} ${imageSize * 0.75}      ${imageSize * 0.14} ${imageSize * 0.7}     ${imageSize * 0.15} ${imageSize * 0.65}
+        C ${imageSize * 0.2}  ${imageSize * 0.45}     ${imageSize * 0.2}  ${imageSize * 0.45}    ${imageSize * 0.25} ${imageSize * 0.3}
+        C ${imageSize * 0.3}  ${imageSize * 0.15}     ${imageSize * 0.4}  ${imageSize * 0.1}     ${imageSize * 0.5}  ${imageSize * 0.1}`
+    },
+    anchors: {
+        eyes: {
+            left: {
+                center: {
+                    x: `${imageCenter - 25}`,
+                    y: `${imageCenter - 20}`
+                }
+            },
+            right: {
+                center: {
+                    x: `${imageCenter + 25}`,
+                    y: `${imageCenter - 20}`
+                }
+            }
+        },
+        mouth: {
+            left: {
+                x: `${imageCenter - 50}`,
+                y: `${imageCenter + 65}`
+            },
+            center: {
+                x: `${imageCenter}`,
+                y: `${imageCenter + 65}`
+            },
+            right: {
+                x: `${imageCenter + 50}`,
+                y: `${imageCenter + 65}`
+            }
+        },
+        nose: {
+            center: {
+                x: `${imageCenter}`,
+                y: `${imageCenter + 20}`
+            }
+        },
+        ears: {
+            left: {
+                left: {
+                    x: `${imageCenter - 81}`,
+                    y: `${imageCenter}`
+                },
+                center: {
+                    x: `${imageCenter - 81}`,
+                    y: `${imageCenter - 10}`
+                },
+                right: {
+                    x: `${imageCenter - 73}`,
+                    y: `${imageCenter - 20}`
+                }
+            },
+            right: {
+                left: {
+                    x: `${imageCenter + 81}`,
+                    y: `${imageCenter}`
+                },
+                center: {
+                    x: `${imageCenter + 81}`,
+                    y: `${imageCenter - 10}`
+                },
+                right: {
+                    x: `${imageCenter + 73}`,
+                    y: `${imageCenter - 20}`
+                }
+            }
+        }
+    }
+};
+
 const faces = [
     circle,
     square,
-    triangle
+    triangle,
+    flatJaw
 ];
 
 export default faces;
